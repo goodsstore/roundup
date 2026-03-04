@@ -1,3 +1,10 @@
+
+<?php
+echo '<pre>';
+print_r($_SERVER['REQUEST_METHOD']);
+print_r($_POST);
+exit;
+
 <?php
 // raundap_files/order.php
 
@@ -59,3 +66,4 @@ file_get_contents($url, false, $context);
 // ===== Редірект на сторінку дякую =====
 header("Location: /thanks.html");
 exit;
+
