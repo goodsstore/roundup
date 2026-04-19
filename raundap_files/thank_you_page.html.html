@@ -55,7 +55,7 @@ src="https://www.facebook.com/tr?id=1443318620912962&ev=Lead&noscript=1"/>
 src="https://www.facebook.com/tr?id=1296013871684859&ev=Lead&noscript=1"/>
 </noscript>
 <!-- End Meta Pixel Code -->
-    <!-- TikTok Pixel Code -->
+   <!-- TikTok Pixel Code -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
@@ -66,8 +66,12 @@ src="https://www.facebook.com/tr?id=1296013871684859&ev=Lead&noscript=1"/>
   ttq.load('D7IGJIJC77U8DEPHHRE0');
   ttq.page();
 
-  // 🔥 ПОДІЯ (це головне)
-  ttq.track('SubmitForm');
+  // ✅ правильна подія
+  ttq.track('Lead', {
+    content_name: 'Thank You Page',
+    value: 1,
+    currency: 'UAH'
+  });
 
 }(window, document, 'ttq');
 </script>
