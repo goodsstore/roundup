@@ -59,7 +59,7 @@ src="https://www.facebook.com/tr?id=1296013871684859&ev=Lead&noscript=1"/>
   w.TiktokAnalyticsObject = t;
   var ttq = w[t] = w[t] || [];
 
-  ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+  ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready"];
 
   ttq.setAndDefer = function(t, e) {
     t[e] = function() {
@@ -71,26 +71,24 @@ src="https://www.facebook.com/tr?id=1296013871684859&ev=Lead&noscript=1"/>
     ttq.setAndDefer(ttq, ttq.methods[i]);
   }
 
-  ttq.load = function(e) {
-    var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
-    var n = document.createElement("script");
-    n.type = "text/javascript";
-    n.async = true;
-    n.src = i + "?sdkid=" + e;
-    var a = document.getElementsByTagName("script")[0];
-    a.parentNode.insertBefore(n, a);
+  ttq.load = function(id) {
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + id;
+    document.head.appendChild(s);
   };
 
   ttq.load('D7IGJIJC77U8DEPHHRE0');
   ttq.page();
 
-  ttq.ready(function () {
+  // 🔥 даємо гарантований час ініціалізації
+  setTimeout(function () {
     ttq.track('Lead', {
       content_name: 'Thank You Page',
       value: 1,
       currency: 'UAH'
     });
-  });
+  }, 1200);
 
 }(window, document, 'ttq');
 </script>
