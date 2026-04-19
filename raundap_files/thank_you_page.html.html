@@ -54,28 +54,46 @@ src="https://www.facebook.com/tr?id=1443318620912962&ev=Lead&noscript=1"/>
 <img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1296013871684859&ev=Lead&noscript=1"/>
 </noscript>
-<!-- End Meta Pixel Code -->
-   <!-- TikTok Pixel Code -->
 <script>
 !function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}; 
-  for(var i=0;i<ttq.methods.length;i++) ttq.setAndDefer(ttq,ttq.methods[i]);
+  w.TiktokAnalyticsObject = t;
+  var ttq = w[t] = w[t] || [];
+
+  ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+
+  ttq.setAndDefer = function(t, e) {
+    t[e] = function() {
+      t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+    }
+  };
+
+  for (var i = 0; i < ttq.methods.length; i++) {
+    ttq.setAndDefer(ttq, ttq.methods[i]);
+  }
+
+  ttq.load = function(e) {
+    var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+    var n = document.createElement("script");
+    n.type = "text/javascript";
+    n.async = true;
+    n.src = i + "?sdkid=" + e;
+    var a = document.getElementsByTagName("script")[0];
+    a.parentNode.insertBefore(n, a);
+  };
 
   ttq.load('D7IGJIJC77U8DEPHHRE0');
   ttq.page();
 
-  // ✅ правильна подія
-  ttq.track('Lead', {
-    content_name: 'Thank You Page',
-    value: 1,
-    currency: 'UAH'
+  ttq.ready(function () {
+    ttq.track('Lead', {
+      content_name: 'Thank You Page',
+      value: 1,
+      currency: 'UAH'
+    });
   });
 
 }(window, document, 'ttq');
 </script>
-<!-- TikTok Pixel Code End -->
 </head>
 <body>
     <div class="thank-you-message">
