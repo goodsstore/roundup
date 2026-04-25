@@ -465,7 +465,7 @@ fbq('track', 'PageView');
           
           
           
-      <form id="order_form" method="POST" action="javascript:void(0);" class="main-order-form m1-form">
+     <form id="order_form" method="POST" action="order.php" class="main-order-form m1-form">
 
   <input type="hidden" name="task" value="process">
   <input type="hidden" name="country" value="ua">
@@ -474,17 +474,16 @@ fbq('track', 'PageView');
 
   <input class="field" type="tel" name="phone" placeholder="Введіть Ваш номер телефону" required>
 
-  <select name="size" required class="field">
+  <select name="weight" required class="field">
     <option value="" disabled selected>Оберіть літраж</option>
     <option value="1 літр - 399 грн">1 літр - 399 грн</option>
-    <option value="5 літрів - 1345 грн (269 грн/л)">5 літрів - 1345 грн (269 грн/л)</option>
-    <option value="10 літрів - 2499 грн (249,90 грн/л)">10 літрів - 2499 грн (249,90 грн/л)</option>
-    <option value="15 літрів - 3699 грн (246,60 грн/л)">15 літрів - 3699 грн (246,60 грн/л)</option>
-    <option value="20 літрів - 4699 грн (234,95 грн/л)">20 літрів - 4699 грн (234,95 грн/л)</option>
+    <option value="5 літрів - 1345 грн (269 грн/л)">5 літрів - 1345 грн</option>
+    <option value="10 літрів - 2499 грн">10 літрів - 2499 грн</option>
+    <option value="15 літрів - 3699 грн">15 літрів - 3699 грн</option>
+    <option value="20 літрів - 4699 грн">20 літрів - 4699 грн</option>
     <option value="Інша вага">Інша вага</option>
   </select>
 
-  <!-- ВАЖЛИВО: клас кнопки як у тебе був -->
   <button type="submit" class="button-m">Замовити зі знижкою</button>
 
 </form>
@@ -492,55 +491,7 @@ fbq('track', 'PageView');
 
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('order_form');
 
-  const token = '6897804929:AAE7BfzBRNefcjG5gpyx7KbLTmqf-13MwTY';
-  const chatId = '-4251179444'; // ⚠️ якщо група — часто треба -100...
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const name = (form.querySelector('input[name="name"]').value || '').trim();
-    const phone = (form.querySelector('input[name="phone"]').value || '').trim();
-    const size = (form.querySelector('select[name="size"]').value || '').trim();
-
-    if(!name || !phone || !size){
-      alert('Заповніть імʼя, телефон і оберіть літраж');
-      return;
-    }
-
-    const message =
-      "🛒 НОВЕ ЗАМОВЛЕННЯ (Раундап)\n\n" +
-      "👤 Ім'я: " + name + "\n" +
-      "📞 Телефон: " + phone + "\n" +
-      "📦 Літраж: " + size;
-
-    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ chat_id: chatId, text: message })
-    })
-    .then(r => r.json())
-    .then(data => {
-      if(data.ok){
-        window.location.href = "raundap_files/thank_you_page.html";
-      } else {
-        console.error(data);
-        alert('Помилка Telegram: перевір chat_id/права бота');
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert('Помилка мережі/відправки');
-    });
-  });
-});
-</script>
-          
-          
-          
           
         </div>
       </section>
