@@ -1,7 +1,7 @@
 <?php
 
-$token = "6897804929:AAExjY2UeQjEO9fjDZfMOKB7DS7MwXef_jw";
-$chat_id = "-4251179444";
+$token = "8798222326:AAFgErWlAjySAoKWhrbZ4obmuTpJ3kPiDxQ";
+$chat_id = "-5225515433";
 
 $name = htmlspecialchars($_POST['name'] ?? '');
 $phone = htmlspecialchars($_POST['phone'] ?? '');
