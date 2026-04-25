@@ -9,7 +9,7 @@ $phone = $_POST['phone'];
 $weight = $_POST['weight'];
 
 $token = "8798222326:AAFgErWlAjySAoKWhrbZ4obmuTpJ3kPiDxQ"; // обовʼязково новий!
-$chat_id = "-5225515433";
+$chat_id = "-1003856725763";
 
 // Формуємо повідомлення
 $txt = "🛒 НОВЕ ЗАМОВЛЕННЯ%0A%0A";
